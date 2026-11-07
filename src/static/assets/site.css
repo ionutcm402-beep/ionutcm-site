@@ -56,7 +56,9 @@ ul { padding: 0; list-style: none; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 51; background: rgba(251, 251, 253, .86); }
 .site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(251, 251, 253, .82); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, .06); }
 .header-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
-.brand { font-size: 1.1875rem; font-weight: 700; letter-spacing: -.035em; text-decoration: none; color: var(--ink); }
+.brand { font-size: 1.1875rem; font-weight: 700; letter-spacing: -.035em; text-decoration: none; color: var(--ink);  display: inline-flex; align-items: center; gap: 10px; }
+.brand-mark { width: 32px; height: 32px; border-radius: 8px; flex: none; }
+.footer-brand .brand-mark { width: 36px; height: 36px; border-radius: 9px; }
 .nav { display: flex; gap: clamp(18px, 4vw, 34px); }
 .nav a { font-size: .9375rem; color: var(--ink-2); text-decoration: none; padding: 8px 0; transition: color .2s; }
 .nav a:hover, .nav a[aria-current] { color: var(--ink); }

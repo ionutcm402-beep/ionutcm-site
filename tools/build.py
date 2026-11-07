@@ -109,7 +109,7 @@ def nav(current):
     links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if current == k else ""}>{t}</a>' for h, t, k in items)
     return f'''<header class="site-header">
   <div class="wrap header-in">
-    <a class="brand" href="/" aria-label="{BRAND}, home">{BRAND}</a>
+    <a class="brand" href="/" aria-label="{BRAND}, home"><img class="brand-mark" src="/assets/logo-96.png" srcset="/assets/logo-96.png 1x, /assets/logo-192.png 2x" alt="" width="32" height="32"><span>{BRAND}</span></a>
     <nav class="nav" aria-label="Main">{links}</nav>
   </div>
 </header>'''
@@ -123,7 +123,7 @@ def footer():
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/">{BRAND}</a>
+        <a class="brand" href="/"><img class="brand-mark" src="/assets/logo-96.png" srcset="/assets/logo-96.png 1x, /assets/logo-192.png 2x" alt="" width="32" height="32"><span>{BRAND}</span></a>
         <p>Simple, private apps for everyday life. Made independently in the United Kingdom.</p>
       </div>
       <nav aria-label="Apps"><h2>Apps</h2><ul>{app_links}<li><a href="/apps">All apps</a></li></ul></nav>
@@ -156,7 +156,8 @@ def page(path, title, desc, body, current="", og_image="/og.png", body_class="")
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v={VERSIONS['css']}">
 <script src="/assets/site.js?v={VERSIONS['js']}" defer></script>

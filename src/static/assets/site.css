@@ -156,7 +156,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .principle-grid p { margin-top: 10px; color: var(--grey); }
 @media (min-width: 760px) { .principle-grid { grid-template-columns: repeat(3, 1fr); } .principle-grid.five { grid-template-columns: repeat(6, 1fr); } .principle-grid.five li { grid-column: span 2; } .principle-grid.five li:nth-child(4) { grid-column: 2 / span 2; } }
 .principle-grid.compact h3 { font-size: 1.125rem; }
-@media (min-width: 760px) { .principle-grid.compact { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); } }
+@media (min-width: 760px) { .principle-grid.compact { display: flex; flex-wrap: wrap; justify-content: center; } .principle-grid.compact li { flex: 0 1 calc((100% - 28px) / 3); } }
 .closing .lede { margin: 18px auto 0; }
 
 /* ---------------- page heads */

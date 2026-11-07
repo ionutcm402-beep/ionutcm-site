@@ -11,12 +11,12 @@
       "category": "Finance",
       "tagline": "Your money. Made simple.",
       "summary": "Track your shifts, earnings, payments and wallet in one simple place.",
-      "description": "My Money brings your working hours, what you'll be paid, the payments going out and the money you hold into one calm place. Everything is worked out on your phone and stays there.",
+      "description": "My Money brings your shifts, what you'll be paid, the payments going out, the money you hold and your holiday allowance into one calm place. Everything is worked out on your phone and stays there.",
       "highlights": [
-        "Record working hours and earnings",
+        "Record shifts, hours and earnings",
+        "Track your holiday allowance",
         "Organise one-off and recurring payments",
         "Keep track of cash and card",
-        "Manage more than one job",
         "Your records stay on your device"
       ],
       "hero": "mymoney-calendar",
@@ -48,28 +48,46 @@
           "text": "Record money in, money out and transfers, and always know what you hold in cash and on card.",
           "alt": "My Money Wallet screen showing total, cash and card balances with recent transactions",
           "headline": "Track cash and card balances."
+        },
+        {
+          "id": "mymoney-holiday",
+          "title": "Holiday allowance",
+          "alt": "My Money Holiday Allowance screen showing 28 days allowance, 1 day used and 27 days remaining for the holiday year",
+          "headline": "Know how much holiday you have left.",
+          "text": "Set your employer's holiday year and allowance, in days or hours. Holidays you add in the Calendar are counted automatically, and you can add adjustments."
+        },
+        {
+          "id": "mymoney-settings",
+          "title": "Settings and tools",
+          "alt": "My Money Settings screen listing jobs, pay periods and tools such as Pay Calculator and Payday Countdown",
+          "headline": "Handy tools, built in.",
+          "text": "A calculator, a pay calculator, a payday countdown, a side-by-side job comparison and an hours-needed tool, next to your jobs and pay periods."
         }
       ],
       "features": [
+        {
+          "title": "Shifts your way",
+          "text": "Split shifts, several shifts a day, overtime, holidays and sick days, with extra money on any day."
+        },
         {
           "title": "Several jobs, one view",
           "text": "Each job keeps its own pay rate, pay period and payday. Overview adds them together."
         },
         {
           "title": "Estimated take-home pay",
-          "text": "Gross and estimated take-home pay from your own rates and tax setting."
+          "text": "Gross and estimated take-home pay from your own rates and deduction setting."
         },
         {
           "title": "Optional app lock",
-          "text": "Protect the app with a PIN and your phone's fingerprint, face or Face ID."
+          "text": "A 4- or 6-digit PIN, with fingerprint, face or Face ID, locking straight away or after 1 or 5 minutes."
         },
         {
           "title": "Backups you keep",
           "text": "Save a backup file wherever you like and restore it on a new phone."
         }
       ],
-      "privacy": "No account, no server and no bank connection. Your records are stored only on your phone and never sent to us. The free Android version shows one advert from Google on the Overview screen, with consent asked first in the UK and EEA; My Money Pro removes it. The iPhone app has no adverts.",
-      "pricing": "Free to download. My Money Pro is a one-time purchase that unlocks unlimited jobs and advanced pay adjustments.",
+      "privacy": "No account, no server and no bank connection. Your records are stored only on your phone and never sent to us, and your app lock PIN itself is never stored. The free Android version shows one advert from Google on the Overview screen, with consent asked first in the UK and EEA; My Money Pro removes it. The iPhone app has no adverts.",
+      "pricing": "Free to download. My Money Pro is a one-time purchase that unlocks unlimited jobs and advanced pay adjustments, and removes the advert on Android. No subscription.",
       "platforms": {
         "android": {
           "status": "coming-soon",
@@ -79,7 +97,7 @@
         "ios": {
           "status": "coming-soon",
           "url": null,
-          "note": "In preparation for the App Store"
+          "note": "In testing with TestFlight, App Store release in preparation"
         }
       },
       "legal": {
@@ -94,6 +112,10 @@
         {
           "q": "How do I move my records to a new phone?",
           "a": "On the old phone, go to Settings → Backup & restore and save a backup file somewhere you can reach from the new phone, such as Google Drive or iCloud Drive. On the new phone, open the same screen and choose that file."
+        },
+        {
+          "q": "How do I track my holiday allowance?",
+          "a": "Go to Settings → Jobs, choose the job, then Holiday Allowance → Track Allowance. Set when your holiday year starts and your allowance in days or hours. Holidays you add in the Calendar are then counted automatically."
         },
         {
           "q": "Can you recover my data?",
@@ -128,7 +150,7 @@
         "Track up to eight daily habits",
         "See the whole month on one dial",
         "Mark a habit done with one tap",
-        "Simple and distraction-free",
+        "Optional reminders on the days you choose",
         "Habits stored only on your phone"
       ],
       "hero": "habitdial-dial",
@@ -183,20 +205,20 @@
         },
         {
           "title": "Optional App Lock",
-          "text": "A 4- or 6-digit PIN, with fingerprint or face unlock."
+          "text": "A 4- or 6-digit PIN, with fingerprint or face unlock. Habit Dial is hidden in the recent-apps screen while it's on."
         },
         {
           "title": "Backups you keep",
           "text": "Create a backup file yourself and restore it when you need to."
         }
       ],
-      "privacy": "No account, no server, no cloud sync, no adverts and no analytics. Your habits are stored only on your phone, encrypted, and Android's cloud backup is turned off for the app.",
+      "privacy": "No account, no server, no cloud sync, no adverts and no analytics. Your habits are stored only on your phone, encrypted, and Android's cloud backup is turned off for the app. Reminders are created and shown on your phone; nothing is sent anywhere.",
       "pricing": "Free to download, with a three-day trial of all eight habits. One habit stays free forever; a one-time lifetime unlock adds all eight. No subscription.",
       "platforms": {
         "android": {
           "status": "coming-soon",
           "url": null,
-          "note": "Coming to Google Play"
+          "note": "In testing on Google Play"
         },
         "ios": {
           "status": "none",

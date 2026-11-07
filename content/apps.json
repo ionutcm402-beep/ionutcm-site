@@ -1,0 +1,231 @@
+{
+  "_readme": "One entry per app. The home page, the Apps page, each app page, the footer, the support page and the sitemap are all built from this list. See README.md › Adding an app.",
+  "apps": [
+    {
+      "slug": "my-money",
+      "order": 1,
+      "published": true,
+      "name": "My Money",
+      "monogram": "£",
+      "icon": null,
+      "category": "Finance",
+      "tagline": "Your money. Made simple.",
+      "summary": "Track your shifts, earnings, payments and wallet in one simple place.",
+      "description": "My Money brings your working hours, what you'll be paid, the payments going out and the money you hold into one calm place. Everything is worked out on your phone and stays there.",
+      "highlights": [
+        "Record working hours and earnings",
+        "Organise one-off and recurring payments",
+        "Keep track of cash and card",
+        "Manage more than one job",
+        "Your records stay on your device"
+      ],
+      "hero": "mymoney-calendar",
+      "screens": [
+        {
+          "id": "mymoney-calendar",
+          "title": "Calendar",
+          "text": "Each pay period is a calendar. Tap a day to record a shift, a holiday or a sick day, and see the hours and extra pay on the day itself. Paydays are marked.",
+          "alt": "My Money Calendar screen showing a four-week pay period with shifts and hours on each day",
+          "headline": "Record shifts, hours, holidays and earnings."
+        },
+        {
+          "id": "mymoney-overview",
+          "title": "Overview",
+          "text": "Overview adds up the estimated income from every job, the payments due this month, and what is left over.",
+          "alt": "My Money Overview screen showing remaining balance, estimated income and payments for November",
+          "headline": "Understand earnings and payments at a glance."
+        },
+        {
+          "id": "mymoney-payments",
+          "title": "Payments",
+          "text": "Rent, bills and one-off costs live in one list. Tick them off as you pay and see how much is still to go.",
+          "alt": "My Money Payments screen listing bills with paid and due amounts",
+          "headline": "Organise recurring and one-off payments."
+        },
+        {
+          "id": "mymoney-wallet",
+          "title": "Wallet",
+          "text": "Record money in, money out and transfers, and always know what you hold in cash and on card.",
+          "alt": "My Money Wallet screen showing total, cash and card balances with recent transactions",
+          "headline": "Track cash and card balances."
+        }
+      ],
+      "features": [
+        {
+          "title": "Several jobs, one view",
+          "text": "Each job keeps its own pay rate, pay period and payday. Overview adds them together."
+        },
+        {
+          "title": "Estimated take-home pay",
+          "text": "Gross and estimated take-home pay from your own rates and tax setting."
+        },
+        {
+          "title": "Optional app lock",
+          "text": "Protect the app with a PIN and your phone's fingerprint, face or Face ID."
+        },
+        {
+          "title": "Backups you keep",
+          "text": "Save a backup file wherever you like and restore it on a new phone."
+        }
+      ],
+      "privacy": "No account, no server and no bank connection. Your records are stored only on your phone and never sent to us. The free Android version shows one advert from Google on the Overview screen, with consent asked first in the UK and EEA; My Money Pro removes it. The iPhone app has no adverts.",
+      "pricing": "Free to download. My Money Pro is a one-time purchase that unlocks unlimited jobs and advanced pay adjustments.",
+      "platforms": {
+        "android": {
+          "status": "coming-soon",
+          "url": null,
+          "note": "In testing on Google Play"
+        },
+        "ios": {
+          "status": "coming-soon",
+          "url": null,
+          "note": "In preparation for the App Store"
+        }
+      },
+      "legal": {
+        "privacy": "/my-money-privacy",
+        "terms": "/my-money-terms"
+      },
+      "support": [
+        {
+          "q": "How do I get My Money Pro back on a new phone?",
+          "a": "Sign in to the same Google or Apple account you bought it with, open My Money, go to Settings → My Money Pro and tap Restore purchase."
+        },
+        {
+          "q": "How do I move my records to a new phone?",
+          "a": "On the old phone, go to Settings → Backup & restore and save a backup file somewhere you can reach from the new phone, such as Google Drive or iCloud Drive. On the new phone, open the same screen and choose that file."
+        },
+        {
+          "q": "Can you recover my data?",
+          "a": "No. Your records are only on your phone, so there is never a copy on our side. Saving a backup regularly is the best protection."
+        },
+        {
+          "q": "How do I change my advert consent?",
+          "a": "In the free Android version, go to Settings → Ad privacy choices. My Money Pro removes adverts completely."
+        },
+        {
+          "q": "How do I delete all my data?",
+          "a": "Uninstall My Money, or on Android clear its storage in Settings → Apps → My Money → Storage. Delete any backup files you saved as well."
+        },
+        {
+          "q": "How do I get a refund?",
+          "a": "Purchases are handled by Google Play or Apple. Request a refund through Google Play (play.google.com → Order history) or Apple (reportaproblem.apple.com)."
+        }
+      ]
+    },
+    {
+      "slug": "habit-dial",
+      "order": 2,
+      "published": true,
+      "name": "Habit Dial",
+      "monogram": "H",
+      "icon": null,
+      "category": "Productivity",
+      "tagline": "Small habits. Clear progress.",
+      "summary": "A simple circular habit tracker that makes daily progress easy to see.",
+      "description": "Habit Dial turns each month into a single dial. Every habit is a ring, every day is a segment, and a glance shows how the month is going. It works offline, with nothing to sign up for.",
+      "highlights": [
+        "Track up to eight daily habits",
+        "See the whole month on one dial",
+        "Mark a habit done with one tap",
+        "Simple and distraction-free",
+        "Habits stored only on your phone"
+      ],
+      "hero": "habitdial-dial",
+      "screens": [
+        {
+          "id": "habitdial-dial",
+          "title": "The dial",
+          "text": "Each habit is a ring and each day a segment. Today is marked, and the centre shows how many habits you have done.",
+          "alt": "Habit Dial showing November as a circular dial with six coloured habit rings and 3 of 6 habits completed today",
+          "headline": "The whole month on one dial."
+        },
+        {
+          "id": "habitdial-list",
+          "title": "Today",
+          "text": "Tap a habit when you have done it today. Tap again to undo.",
+          "alt": "Habit Dial list of today's habits with three marked as done",
+          "headline": "One tap to mark it done."
+        },
+        {
+          "id": "habitdial-add",
+          "title": "New habit",
+          "alt": "Habit Dial New habit sheet with a name field and a choice of colours",
+          "headline": "Add a habit in seconds.",
+          "text": "Give it a name and a colour. Changes apply to the current month, so each month can have its own habits."
+        }
+      ],
+      "steps": [
+        {
+          "title": "Set up your habits",
+          "text": "Add up to eight daily habits for the month and give each one a colour. Each habit becomes a ring on the dial.",
+          "screen": "habitdial-add"
+        },
+        {
+          "title": "Mark today's progress",
+          "text": "Tap a habit when you've done it. The matching segment on the dial fills in straight away.",
+          "screen": "habitdial-list"
+        },
+        {
+          "title": "See the month at a glance",
+          "text": "The dial shows every day of the month, so streaks and gaps are easy to spot without charts or scores.",
+          "screen": "habitdial-dial"
+        }
+      ],
+      "features": [
+        {
+          "title": "Light and dark",
+          "text": "Follows your phone's appearance, or choose one yourself."
+        },
+        {
+          "title": "Optional App Lock",
+          "text": "A 4- or 6-digit PIN, with fingerprint or face unlock."
+        },
+        {
+          "title": "Backups you keep",
+          "text": "Create a backup file yourself and restore it when you need to."
+        }
+      ],
+      "privacy": "No account, no server, no cloud sync, no adverts and no analytics. Your habits are stored only on your phone, encrypted, and Android's cloud backup is turned off for the app.",
+      "pricing": "Free to download, with a three-day trial of all eight habits. One habit stays free forever; a one-time lifetime unlock adds all eight. No subscription.",
+      "platforms": {
+        "android": {
+          "status": "coming-soon",
+          "url": null,
+          "note": "Coming to Google Play"
+        },
+        "ios": {
+          "status": "none",
+          "url": null,
+          "note": null
+        }
+      },
+      "legal": {
+        "privacy": "/habit-dial-privacy",
+        "terms": "/habit-dial-terms"
+      },
+      "support": [
+        {
+          "q": "How do I restore the lifetime unlock on a new phone?",
+          "a": "Sign in to Google Play with the account you bought it with. Habit Dial checks your purchase with Google Play when it opens."
+        },
+        {
+          "q": "How do I move my habits to a new phone?",
+          "a": "Create a backup file in Habit Dial's Settings, keep it somewhere you can reach from the new phone, then restore it there. Android cloud backup is turned off for the app, so it won't copy your habits by itself."
+        },
+        {
+          "q": "I forgot my App Lock PIN.",
+          "a": "Use fingerprint or face unlock if you turned it on. If not, the only way back in is to clear the app's data in Android settings, which also deletes your habits unless you have a backup."
+        },
+        {
+          "q": "How do I delete all my data?",
+          "a": "In Habit Dial, go to Settings → Delete all data. Uninstalling the app also deletes everything."
+        },
+        {
+          "q": "How do I get a refund?",
+          "a": "Purchases are handled by Google Play. Request a refund through Google Play (play.google.com → Order history)."
+        }
+      ]
+    }
+  ]
+}

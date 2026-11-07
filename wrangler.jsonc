@@ -1,10 +1,10 @@
-// Cloudflare settings for ionutcm.com: a static site, no build step.
+// Cloudflare settings for ionutcm.com: static site, already built into ./public (run tools/build.py before committing).
 {
   "name": "ionutcm-site",
   "compatibility_date": "2026-11-01",
   "assets": {
-    "directory": ".",
-    "html_handling": "auto-trailing-slash",
+    "directory": "./public",
+    "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   }
 }

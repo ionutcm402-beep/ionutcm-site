@@ -1,0 +1,3 @@
+# Old addresses → new ones (store listings may still use the old ones)
+/my-money        /apps/my-money        301
+/my-money.html   /apps/my-money        301

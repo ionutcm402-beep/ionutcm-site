@@ -1,0 +1,10 @@
+// Cloudflare settings for ionutcm.com: a static site, no build step.
+{
+  "name": "ionutcm-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": ".",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

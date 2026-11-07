@@ -178,6 +178,10 @@
           "text": "Follows your phone's appearance, or choose one yourself."
         },
         {
+          "title": "Reminders",
+          "text": "An optional reminder for each habit, on the days you choose. Skipped once you have ticked it."
+        },
+        {
           "title": "Optional App Lock",
           "text": "A 4- or 6-digit PIN, with fingerprint or face unlock."
         },
@@ -216,6 +220,10 @@
         {
           "q": "I forgot my App Lock PIN.",
           "a": "Use fingerprint or face unlock if you turned it on. If not, the only way back in is to clear the app's data in Android settings, which also deletes your habits unless you have a backup."
+        },
+        {
+          "q": "Why didn’t my reminder arrive?",
+          "a": "Check that notifications are on for Habit Dial in your phone’s Settings → Apps → Habit Dial → Notifications, and that battery saving isn’t stopping the app. Reminders can arrive a few minutes late while the phone saves battery. There’s no reminder on a day you’ve already ticked the habit. If you haven’t opened Habit Dial for three weeks, reminders pause until you open it again."
         },
         {
           "q": "How do I delete all my data?",

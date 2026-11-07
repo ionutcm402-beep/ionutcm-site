@@ -38,7 +38,7 @@ li+li{margin-top:6px}
 .app h3{margin:0;font-size:20px}
 .app p{margin:2px 0 0;color:var(--muted);font-size:15px}
 .app .go{font:13px var(--mono);color:var(--muted);white-space:nowrap}
-.icon{width:56px;height:56px;border-radius:14px;background:var(--fg);color:var(--ink-inv);display:grid;place-items:center;font:700 22px var(--display)}
+.icon{width:56px;height:56px;border-radius:14px;background:var(--fg);color:var(--ink-inv);display:grid;place-items:center;font:700 24px/1 Arial,Helvetica,sans-serif}
 .icon.alt{background:var(--panel);color:var(--fg);border:1px solid var(--line)}
 .ledger{margin-top:32px;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums}
 .ledger div{display:flex;justify-content:space-between;gap:16px;padding:12px 16px;border-top:1px solid var(--line);font-size:15px}

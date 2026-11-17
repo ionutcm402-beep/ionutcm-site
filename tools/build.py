@@ -447,12 +447,15 @@ def build_support():
     page("/support", "Support", "Support and contact for ionutcm apps: answers to common questions and an email address that reaches the developer.", body, "support")
 
 
-def build_legal(path, fragment, title, desc, app=None):
+SPOTTEDWISE = [("/spottedwise-privacy", "spottedwise-privacy.html", "SpottedWise Privacy Policy", "Privacy policy for SpottedWise."),
+               ("/spottedwise-delete-account", "spottedwise-delete-account.html", "Delete your SpottedWise account", "How to delete your SpottedWise account, in the app or by email.")]
+
+
+def build_legal(path, fragment, title, desc, app=None, side=""):
     body_html = open(os.path.join(CONTENT, "legal", fragment), encoding="utf-8").read()
     if "<!--APP_POLICY_LIST-->" in body_html:
         lst = "".join(f'<li><a href="{a["legal"]["privacy"]}">{e(a["name"])} privacy policy</a></li>' for a in APPS)
         body_html = body_html.replace("<!--APP_POLICY_LIST-->", f"<ul>{lst}</ul>")
-    side = ""
     if app:
         side = (f'<nav class="legal-switch" aria-label="{e(app["name"])} documents">'
                 f'<a href="{app["legal"]["privacy"]}"{" aria-current=\"page\"" if path == app["legal"]["privacy"] else ""}>Privacy policy</a>'
@@ -507,6 +510,12 @@ if __name__ == "__main__":
     for a in APPS:
         build_legal(a["legal"]["privacy"], f'{a["slug"]}-privacy.html', f'{a["name"]} Privacy Policy', f'Privacy policy for {a["name"]}.', a)
         build_legal(a["legal"]["terms"], f'{a["slug"]}-terms.html', f'{a["name"]} Terms of Use', f'Terms of use for {a["name"]}.', a)
+    # SpottedWise (not yet on the Apps page): its privacy policy and account-deletion page, linked to each other
+    sw_side = lambda cur: ('<nav class="legal-switch" aria-label="SpottedWise documents">' + "".join(
+        f'<a href="{p}"{" aria-current=\"page\"" if p == cur else ""}>{n}</a>' for p, n in
+        (("/spottedwise-privacy", "Privacy policy"), ("/spottedwise-delete-account", "Delete your account"))) + '</nav>')
+    for p, frag, t, d in SPOTTEDWISE:
+        build_legal(p, frag, t, d, side=sw_side(p))
     build_404()
     with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

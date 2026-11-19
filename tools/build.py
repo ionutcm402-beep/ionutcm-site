@@ -530,4 +530,8 @@ if __name__ == "__main__":
                 + "</urlset>\n")
     with open(os.path.join(OUT, "robots.txt"), "w") as f:
         f.write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
+    # SpottedWise adverts (Google AdMob, 19 Nov 2026): the authorised-sellers line Google checks at ionutcm.com/app-ads.txt
+    # (the developer website in the SpottedWise Play listing). The publisher ID is public, not a secret.
+    with open(os.path.join(OUT, "app-ads.txt"), "w") as f:
+        f.write("google.com, pub-1009140566644504, DIRECT, f08c47fec0942fa0\n")
     print(f"built {len(PAGES)} pages into public/")

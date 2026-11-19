@@ -64,6 +64,25 @@ def tagline_html(text):
     return "<br>".join(e(p) for p in parts) if len(parts) == 2 else e(text)
 
 
+def appearances(app):
+    """Some apps are light-only (e.g. SpottedWise); the site never shows a dark screenshot that doesn't exist."""
+    return app.get("appearances") or ["light", "dark"]
+
+
+def theme_for(app, want):
+    return want if want in appearances(app) else appearances(app)[0]
+
+
+def legal_docs(app):
+    """Every public document for an app: privacy, terms (optional) and any extra pages, as (path, label, summary, fragment, title, desc)."""
+    L = app["legal"]; n = app["name"]; out = [(L["privacy"], "Privacy policy", "What happens to your data", f'{app["slug"]}-privacy.html', f"{n} Privacy Policy", f"Privacy policy for {n}.")]
+    if L.get("terms"):
+        out.append((L["terms"], "Terms of use", "Purchases and your rights", f'{app["slug"]}-terms.html', f"{n} Terms of Use", f"Terms of use for {n}."))
+    for x in L.get("extra", []):
+        out.append((x["path"], x["label"], x.get("summary", ""), x["fragment"], x["title"], x["desc"]))
+    return out
+
+
 def screen(app, sid):
     for s in app["screens"]:
         if s["id"] == sid:
@@ -118,7 +137,7 @@ def nav(current):
 def footer():
     app_links = "".join(f'<li><a href="/apps/{a["slug"]}">{e(a["name"])}</a></li>' for a in APPS)
     legal = "".join(f'<li><a href="{a["legal"]["privacy"]}">{e(a["name"])} privacy</a></li>'
-                    f'<li><a href="{a["legal"]["terms"]}">{e(a["name"])} terms</a></li>' for a in APPS)
+                    + (f'<li><a href="{a["legal"]["terms"]}">{e(a["name"])} terms</a></li>' if a["legal"].get("terms") else "") for a in APPS)
     return f'''<footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
@@ -183,7 +202,7 @@ def page(path, title, desc, body, current="", og_image="/og.png", body_class="")
 def showcase(app, i):
     """One app on the home page. Bands alternate dark/light, so any number of apps stays balanced."""
     dark = i % 2 == 0
-    theme = "dark" if dark else "light"
+    theme = theme_for(app, "dark" if dark else "light")
     shots = app["screens"][:3]
     hero_id = app.get("hero") or shots[0]["id"]
     ordered = [s for s in shots if s["id"] != hero_id]
@@ -245,8 +264,8 @@ def build_home():
   <div class="wrap">
     <h2 id="principles-h" class="display center reveal">Built the same way, every time.</h2>
     <ul class="principle-grid">
-      <li class="reveal"><h3>Your data stays on your phone</h3><p>What you enter is stored on your device. There's no account to create and no server holding a copy.</p></li>
-      <li class="reveal"><h3>Works offline</h3><p>The apps don't need a connection to do their job. Only store purchases go through Google Play or the App Store.</p></li>
+      <li class="reveal"><h3>Private by design</h3><p>Each app collects only what it needs to work. There's no analytics, and your information is never sold.</p></li>
+      <li class="reveal"><h3>No sign-up to start</h3><p>Open an app and start using it. Where an account helps, like sharing deals with others, it's optional.</p></li>
       <li class="reveal"><h3>Focused on one job</h3><p>Each app solves one everyday problem well, without extra features you have to work around.</p></li>
     </ul>
   </div>
@@ -267,7 +286,7 @@ def build_apps_index():
   <div class="wrap">
     <p class="eyebrow">Apps</p>
     <h1 class="display-xl">Every app, in one place.</h1>
-    <p class="lede">Small, focused apps that keep your information on your phone.</p>
+    <p class="lede">Small, focused apps that respect your privacy.</p>
   </div>
 </section>
 <section class="band band-light tight-top">
@@ -286,7 +305,7 @@ def build_app(app):
 
     gallery = "".join(f'''<li class="gallery-item">{phone(s['id'], s['alt'], 'light')}<p class="gallery-cap"><b>{e(s['title'])}</b></p></li>'''
                       for s in app["screens"])
-    gallery_dark = "".join(f'''<li class="gallery-item">{phone(s['id'], s['alt'] + ' (dark appearance)', 'dark')}<p class="gallery-cap"><b>{e(s['title'])}</b> · Dark</p></li>'''
+    gallery_dark = "" if "dark" not in appearances(app) else "".join(f'''<li class="gallery-item">{phone(s['id'], s['alt'] + ' (dark appearance)', 'dark')}<p class="gallery-cap"><b>{e(s['title'])}</b> · Dark</p></li>'''
                            for s in app["screens"])
 
     if app.get("steps"):
@@ -334,7 +353,7 @@ def build_app(app):
   <div class="gallery" tabindex="0" role="region" aria-label="{e(app['name'])} screenshots">
     <ul class="gallery-track">{gallery}{gallery_dark}</ul>
   </div>
-  <p class="wrap fine">Screens show example data. Light and dark follow your phone's setting.</p>
+  <p class="wrap fine">{"Screens show example data. Light and dark follow your phone's setting." if "dark" in appearances(app) else "Screens show example data."}</p>
 </section>
 
 <section class="band band-light" aria-labelledby="rows-h">
@@ -359,7 +378,7 @@ def build_app(app):
       <p class="lede">{e(app['privacy'])}</p>
       <a class="link-arrow" href="{app['legal']['privacy']}">Read the privacy policy</a>
     </div>
-    <div class="privacy-shot reveal">{phone(hero['id'], hero['alt'] + ' (dark appearance)', 'dark')}</div>
+    <div class="privacy-shot reveal">{phone(hero['id'], hero['alt'] + (' (dark appearance)' if 'dark' in appearances(app) else ''), theme_for(app, 'dark'))}</div>
   </div>
 </section>
 
@@ -376,8 +395,7 @@ def build_app(app):
     <h2 id="help-h" class="display-sm center">Help and legal.</h2>
     <ul class="link-cards">
       <li><a href="/support#{slug}"><b>Support</b><span>Answers and contact</span></a></li>
-      <li><a href="{app['legal']['privacy']}"><b>Privacy policy</b><span>What happens to your data</span></a></li>
-      <li><a href="{app['legal']['terms']}"><b>Terms of use</b><span>Purchases and your rights</span></a></li>
+      {"".join(f'<li><a href="{d[0]}"><b>{e(d[1])}</b><span>{e(d[2])}</span></a></li>' for d in legal_docs(app))}
     </ul>
   </div>
 </section>'''
@@ -387,7 +405,7 @@ def build_app(app):
 
 def build_about():
     values = [("Simplicity", "Each app does one job, and does it without fuss."),
-              ("Privacy", "Your information stays on your phone. No accounts, no servers holding your data."),
+              ("Privacy", "Each app collects only what it needs. No analytics, and nothing is ever sold."),
               ("Practical usefulness", "Every feature has to earn its place by solving a real, everyday problem."),
               ("Clean design", "Calm screens, clear numbers and nothing competing for your attention."),
               ("Independence", "No investors and no growth targets. Just apps I'd want to use myself.")]
@@ -402,7 +420,7 @@ def build_about():
 <section class="band band-light tight-top">
   <div class="wrap narrow prose-block reveal">
     <p>ionutcm is one person, not a company with departments. I design, build and support every app myself, and I answer every email myself too.</p>
-    <p>My apps keep your information on your device, work without an account, and try to be clear about what they do. If something doesn't work the way you expect, I'd like to hear about it.</p>
+    <p>My apps collect only what they need, let you start without signing up, and try to be clear about what they do. If something doesn't work the way you expect, I'd like to hear about it.</p>
   </div>
 </section>
 <section class="band band-mist" aria-labelledby="values-h">
@@ -428,7 +446,7 @@ def build_support():
         sections += f'''<section class="support-app" id="{a['slug']}" aria-labelledby="sup-{a['slug']}">
       <div class="app-id">{icon(a, 'sm')}<h2 id="sup-{a['slug']}">{e(a['name'])}</h2></div>
       <div class="qa-list">{qa}</div>
-      <p class="support-links"><a href="/apps/{a['slug']}">About the app</a><a href="{a['legal']['privacy']}">Privacy policy</a><a href="{a['legal']['terms']}">Terms of use</a></p>
+      <p class="support-links"><a href="/apps/{a['slug']}">About the app</a>{"".join(f'<a href="{d[0]}">{e(d[1])}</a>' for d in legal_docs(a))}</p>
     </section>'''
     body = f'''<section class="page-head">
   <div class="wrap narrow">
@@ -447,10 +465,6 @@ def build_support():
     page("/support", "Support", "Support and contact for ionutcm apps: answers to common questions and an email address that reaches the developer.", body, "support")
 
 
-SPOTTEDWISE = [("/spottedwise-privacy", "spottedwise-privacy.html", "SpottedWise Privacy Policy", "Privacy policy for SpottedWise."),
-               ("/spottedwise-delete-account", "spottedwise-delete-account.html", "Delete your SpottedWise account", "How to delete your SpottedWise account, in the app or by email.")]
-
-
 def build_legal(path, fragment, title, desc, app=None, side=""):
     body_html = open(os.path.join(CONTENT, "legal", fragment), encoding="utf-8").read()
     if "<!--APP_POLICY_LIST-->" in body_html:
@@ -458,9 +472,8 @@ def build_legal(path, fragment, title, desc, app=None, side=""):
         body_html = body_html.replace("<!--APP_POLICY_LIST-->", f"<ul>{lst}</ul>")
     if app:
         side = (f'<nav class="legal-switch" aria-label="{e(app["name"])} documents">'
-                f'<a href="{app["legal"]["privacy"]}"{" aria-current=\"page\"" if path == app["legal"]["privacy"] else ""}>Privacy policy</a>'
-                f'<a href="{app["legal"]["terms"]}"{" aria-current=\"page\"" if path == app["legal"]["terms"] else ""}>Terms of use</a>'
-                f'<a href="/apps/{app["slug"]}">About {e(app["name"])}</a></nav>')
+                + "".join(f'<a href="{d[0]}"{" aria-current=\"page\"" if path == d[0] else ""}>{e(d[1])}</a>' for d in legal_docs(app))
+                + f'<a href="/apps/{app["slug"]}">About {e(app["name"])}</a></nav>')
     body = f'''<section class="legal">
   <div class="wrap narrow">
     {side}
@@ -498,7 +511,7 @@ if __name__ == "__main__":
     # every screen referenced in apps.json must exist in both appearances
     for a in APPS:
         for s in a["screens"]:
-            for t in ("light", "dark"):
+            for t in appearances(a):
                 for suffix in ("", "-480"):
                     assert f'{s["id"]}-{t}{suffix}' in VERSIONS, f'missing screenshot {s["id"]}-{t}{suffix}.webp'
     PAGES = []
@@ -508,14 +521,8 @@ if __name__ == "__main__":
     build_about(); build_support()
     build_legal("/privacy", "website-privacy.html", "Website privacy", "Privacy information for the ionutcm.com website.")
     for a in APPS:
-        build_legal(a["legal"]["privacy"], f'{a["slug"]}-privacy.html', f'{a["name"]} Privacy Policy', f'Privacy policy for {a["name"]}.', a)
-        build_legal(a["legal"]["terms"], f'{a["slug"]}-terms.html', f'{a["name"]} Terms of Use', f'Terms of use for {a["name"]}.', a)
-    # SpottedWise (not yet on the Apps page): its privacy policy and account-deletion page, linked to each other
-    sw_side = lambda cur: ('<nav class="legal-switch" aria-label="SpottedWise documents">' + "".join(
-        f'<a href="{p}"{" aria-current=\"page\"" if p == cur else ""}>{n}</a>' for p, n in
-        (("/spottedwise-privacy", "Privacy policy"), ("/spottedwise-delete-account", "Delete your account"))) + '</nav>')
-    for p, frag, t, d in SPOTTEDWISE:
-        build_legal(p, frag, t, d, side=sw_side(p))
+        for path, _l, _s, frag, title, desc in legal_docs(a):
+            build_legal(path, frag, title, desc, a)
     build_404()
     with open(os.path.join(OUT, "sitemap.xml"), "w") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

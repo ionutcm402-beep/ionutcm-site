@@ -256,6 +256,116 @@
           "a": "Purchases are handled by Google Play. Request a refund through Google Play (play.google.com → Order history)."
         }
       ]
+    },
+    {
+      "slug": "spottedwise",
+      "order": 3,
+      "published": true,
+      "name": "SpottedWise",
+      "monogram": "S",
+      "icon": "/assets/icons/spottedwise.png",
+      "category": "Lifestyle",
+      "appearances": [
+        "light"
+      ],
+      "tagline": "Local deals. Spotted by locals.",
+      "summary": "Find and share deals near you in the UK, checked by the people who use them.",
+      "description": "SpottedWise brings local deals into one place: lunch offers, happy hours, things to do, shopping and everyday services. Deals are shared by the community, and people say whether a deal is still on, so you can see when it was last checked.",
+      "highlights": [
+        "Browse local deals without an account",
+        "Five categories, from food to everyday services",
+        "See when each deal was last checked",
+        "Save deals and share them with friends",
+        "Add a deal you've spotted in a few steps"
+      ],
+      "hero": "spottedwise-offers",
+      "screens": [
+        {
+          "id": "spottedwise-offers",
+          "title": "Offers",
+          "alt": "SpottedWise Offers screen listing nearby deals with prices, times and when each was last checked",
+          "headline": "Deals near you, at a glance.",
+          "text": "Choose a town, a postcode or your current location and a distance. Each deal shows the price, when it's on next and when someone last checked it."
+        },
+        {
+          "id": "spottedwise-deal",
+          "title": "Deal details",
+          "alt": "SpottedWise deal page for a burger, fries and shake at £11.95, showing what's included, conditions and times",
+          "headline": "Everything you need to know.",
+          "text": "What's included and what isn't, the conditions, the days and times, and where to find it. Save it for later or share it with a friend."
+        },
+        {
+          "id": "spottedwise-add",
+          "title": "Add a deal",
+          "alt": "SpottedWise Add a deal screen with a place search and five deal categories",
+          "headline": "Spotted one? Share it.",
+          "text": "Find the place, pick a category and describe the offer. Deals you share help everyone nearby save."
+        }
+      ],
+      "features": [
+        {
+          "title": "Checked by the community",
+          "text": "People say whether a deal is still on, so you can see when it was last confirmed."
+        },
+        {
+          "title": "Search your way",
+          "text": "Look by town or postcode, or use your location only if you choose to."
+        },
+        {
+          "title": "Saved deals",
+          "text": "Keep the deals you like in one list. Sign in and they follow you to your other devices."
+        },
+        {
+          "title": "Fair and moderated",
+          "text": "Anyone can report a deal that's wrong, and reports are reviewed. Businesses can ask for corrections."
+        }
+      ],
+      "privacy": "Browsing needs no account. Location is optional: your exact position stays on your phone, and only an approximate location, rounded to about 1 km, is used to find nearby deals. Contributors sign in with an email address, which is never shown to anyone. There's no analytics, and any adverts are non-personalised.",
+      "pricing": "Free to download and use.",
+      "platforms": {
+        "android": {
+          "status": "coming-soon",
+          "url": null,
+          "note": "In testing for Google Play"
+        },
+        "ios": {
+          "status": "coming-soon",
+          "url": null,
+          "note": "In preparation for the App Store"
+        }
+      },
+      "legal": {
+        "privacy": "/spottedwise-privacy",
+        "terms": null,
+        "extra": [
+          {
+            "path": "/spottedwise-delete-account",
+            "label": "Delete your account",
+            "summary": "In the app or by email",
+            "fragment": "spottedwise-delete-account.html",
+            "title": "Delete your SpottedWise account",
+            "desc": "How to delete your SpottedWise account, in the app or by email."
+          }
+        ]
+      },
+      "support": [
+        {
+          "q": "Do I need an account?",
+          "a": "No. You can browse, search and save deals without one. You only sign in, with your email address, to add deals, confirm whether a deal is still on, or report one. Contributors must be 18 or over."
+        },
+        {
+          "q": "A deal is wrong or has ended. What can I do?",
+          "a": "Open the deal and say it's no longer on, or report it. Reports are reviewed, and deals that are wrong are corrected or removed."
+        },
+        {
+          "q": "I run a business. How do I correct or remove its details?",
+          "a": "Email contact@ionutcm.com with the business name and address and what needs to change."
+        },
+        {
+          "q": "How do I delete my account?",
+          "a": "In the app, sign in and go to Settings › Account › Delete my account. Or email contact@ionutcm.com from the address you sign in with, with the subject \"Delete my SpottedWise account\"."
+        }
+      ]
     }
   ]
 }

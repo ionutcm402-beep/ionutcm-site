@@ -299,7 +299,7 @@
           "title": "Add a deal",
           "alt": "SpottedWise Add a deal screen with a place search and five deal categories",
           "headline": "Spotted one? Share it.",
-          "text": "Find the place, pick a category and describe the offer. Deals you share help everyone nearby save."
+          "text": "Find the place, then type the offer, or scan a leaflet or menu and your phone fills it in for you to check. Deals you share help everyone nearby save."
         }
       ],
       "features": [
@@ -320,7 +320,7 @@
           "text": "Anyone can report a deal that's wrong, and reports are reviewed. Businesses can ask for corrections."
         }
       ],
-      "privacy": "Browsing needs no account. Location is optional: your exact position stays on your phone, and only an approximate location, rounded to about 1 km, is used to find nearby deals. Contributors sign in with an email address, which is never shown to anyone. There's no analytics, and any adverts are non-personalised.",
+      "privacy": "Browsing needs no account. Location is optional: your exact position stays on your phone, and only an approximate location, rounded to about 1 km, is used to find nearby deals. Contributors sign in with an email address, which is never shown to anyone. SpottedWise has no analytics of its own. Adverts are non-personalised and come from Google AdMob, which receives some device and usage information; the privacy policy explains what.",
       "pricing": "Free to download and use.",
       "platforms": {
         "android": {

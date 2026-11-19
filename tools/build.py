@@ -16,7 +16,7 @@ SITE = "https://ionutcm.com"
 BRAND = "ionutcm"
 EMAIL = "contact@ionutcm.com"
 YEAR = 2026
-UPDATED = "2026-11-07"
+UPDATED = "2026-11-19"
 SCREEN_W, SCREEN_H = 780, 1688          # every screenshot is exported at this size (390 × 844 pt at 2×)
 
 e = lambda s: html.escape(str(s), quote=True)

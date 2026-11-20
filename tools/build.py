@@ -164,7 +164,7 @@ def page(path, title, desc, body, current="", og_image="/og.png", body_class="")
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{e(full_title)}</title>
 <meta name="description" content="{e(desc)}">
-<link rel="canonical" href="{canonical}">
+{'<meta name="robots" content="noindex">' if path == "/404" else f'<link rel="canonical" href="{canonical}">'}
 <meta name="theme-color" content="#fbfbfd">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{BRAND}">
@@ -534,4 +534,14 @@ if __name__ == "__main__":
     # (the developer website in the SpottedWise Play listing). The publisher ID is public, not a secret.
     with open(os.path.join(OUT, "app-ads.txt"), "w") as f:
         f.write("google.com, pub-1009140566644504, DIRECT, f08c47fec0942fa0\n")
+    # Audit 20 Nov 2026: every share picture (og:image) a page names must exist; og-spottedwise.png was missing, so shared
+    # links to the SpottedWise page showed no picture
+    missing = set()
+    for root, _d, files in os.walk(OUT):
+        for fn in files:
+            if fn.endswith(".html"):
+                for img in re.findall(r'property="og:image" content="' + re.escape(SITE) + r'(/[^"]+)"', open(os.path.join(root, fn), encoding="utf-8").read()):
+                    if not os.path.exists(os.path.join(OUT, img.lstrip("/"))): missing.add(img)
+    if missing:
+        raise SystemExit("Refusing to finish: share pictures named by pages but missing: " + ", ".join(sorted(missing)))
     print(f"built {len(PAGES)} pages into public/")

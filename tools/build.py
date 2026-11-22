@@ -54,7 +54,8 @@ def availability_label(app):
     if all(r["status"] == "available" and r["url"] for r in rows):
         return f"Available for {devices}"
     if any(r["status"] == "available" and r["url"] for r in rows):
-        return " · ".join(f'{r["device"]}: {"available" if r["url"] else "coming soon"}' for r in rows)
+        return " · ".join(f'Available on {r["store"]}' if r["status"] == "available" and r["url"]
+                          else f'Coming soon for {r["device"]}' for r in rows)
     return f"Coming soon for {devices}"
 
 

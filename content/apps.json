@@ -24,15 +24,15 @@
         {
           "id": "mymoney-calendar",
           "title": "Calendar",
-          "text": "Each pay period is a calendar. Tap a day to record a shift, a holiday or a sick day, and see the hours and extra pay on the day itself. Paydays are marked.",
-          "alt": "My Money Calendar screen showing a four-week pay period with shifts and hours on each day",
-          "headline": "Record shifts, hours, holidays and earnings."
+          "text": "Each pay period is a calendar. Tap a day to record a shift, a holiday or a sick day. Colour makes the month easy to read: paid holidays in amber, paid sick days in red, extra money in green and days off shaded grey, with the icons and words kept too. Paydays are marked.",
+          "alt": "My Money Calendar screen showing a four-week pay period with shifts, an amber holiday, a red sick day, green extra money and shaded days off",
+          "headline": "Record shifts, hours, holidays and earnings, in colour."
         },
         {
           "id": "mymoney-overview",
           "title": "Overview",
           "text": "Overview adds up the estimated income from every job, the payments due this month, and what is left over.",
-          "alt": "My Money Overview screen showing remaining balance, estimated income and payments for November",
+          "alt": "My Money Overview screen for November showing the amount left over, estimated income from two jobs and payments",
           "headline": "Understand earnings and payments at a glance."
         },
         {
@@ -45,8 +45,8 @@
         {
           "id": "mymoney-wallet",
           "title": "Wallet",
-          "text": "Record money in, money out and transfers, and always know what you hold in cash and on card.",
-          "alt": "My Money Wallet screen showing total, cash and card balances with recent transactions",
+          "text": "Record money in, money out and transfers, and always know what you hold in cash and on card. A pay-period summary shows what came in and went out, split into cash and card.",
+          "alt": "My Money Wallet screen showing total, cash and card balances, money in and out for the pay period, and recent transactions",
           "headline": "Track cash and card balances."
         },
         {
@@ -75,7 +75,7 @@
         },
         {
           "title": "Estimated take-home pay",
-          "text": "Gross and estimated take-home pay from your own rates and deduction setting."
+          "text": "Gross and estimated take-home pay from your own rates and deduction setting, with the pay for each line of hours in the period breakdown."
         },
         {
           "title": "Optional app lock",
@@ -90,9 +90,9 @@
       "pricing": "Free to download. My Money Pro is a one-time purchase that unlocks unlimited jobs and advanced pay adjustments, and removes the advert on Android. No subscription.",
       "platforms": {
         "android": {
-          "status": "coming-soon",
-          "url": null,
-          "note": "In testing on Google Play"
+          "status": "available",
+          "url": "https://play.google.com/store/apps/details?id=com.ionutcm.mymoney",
+          "note": "Available on Google Play"
         },
         "ios": {
           "status": "coming-soon",

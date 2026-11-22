@@ -86,8 +86,8 @@
           "text": "Save a backup file wherever you like and restore it on a new phone."
         }
       ],
-      "privacy": "No account, no server and no bank connection. Your records are stored only on your phone and never sent to us, and your app lock PIN itself is never stored. The free Android version shows one advert from Google on the Overview screen, with consent asked first in the UK and EEA; My Money Pro removes it. The iPhone app has no adverts.",
-      "pricing": "Free to download. My Money Pro is a one-time purchase that unlocks unlimited jobs and advanced pay adjustments, and removes the advert on Android. No subscription.",
+      "privacy": "No account, no server and no bank connection. Your records are stored only on your phone and never sent to us, and your app lock PIN itself is never stored. No adverts and no analytics, on Android and iPhone.",
+      "pricing": "Free to download. My Money Pro is a one-time purchase that unlocks unlimited jobs and advanced pay adjustments. No subscription.",
       "platforms": {
         "android": {
           "status": "available",
@@ -122,8 +122,8 @@
           "a": "No. Your records are only on your phone, so there is never a copy on our side. Saving a backup regularly is the best protection."
         },
         {
-          "q": "How do I change my advert consent?",
-          "a": "In the free Android version, go to Settings → Ad privacy choices. My Money Pro removes adverts completely."
+          "q": "Does My Money show adverts?",
+          "a": "No. My Money has no adverts and no analytics, on Android and iPhone. If you still see an advert on Android, update the app from Google Play."
         },
         {
           "q": "How do I delete all my data?",

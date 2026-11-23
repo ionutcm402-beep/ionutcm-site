@@ -52,7 +52,7 @@ def availability_label(app):
         return ""
     devices = " and ".join(r["device"] for r in rows)
     if all(r["status"] == "available" and r["url"] for r in rows):
-        return f"Available for {devices}"
+        return " · ".join(f'Available on {r["store"]}' for r in rows)
     if any(r["status"] == "available" and r["url"] for r in rows):
         return " · ".join(f'Available on {r["store"]}' if r["status"] == "available" and r["url"]
                           else f'Coming soon for {r["device"]}' for r in rows)
@@ -220,6 +220,7 @@ def showcase(app, i):
       <ul class="ticks">{hl}</ul>
       <div class="showcase-foot">
         <a class="btn btn-primary" href="/apps/{app['slug']}">Discover {e(app['name'])}</a>
+        {store_buttons(app)}
         <span class="availability">{e(availability_label(app))}</span>
       </div>
     </div>
